@@ -1,0 +1,36 @@
+#include<bits/stdc++.h> 
+using namespace std; 
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    map<char,int> m; // to store the number of letter in string 
+    string x ;
+    cin>>x;
+    for(auto i :x )
+    {
+        m[i]++; // storing 
+    }
+    int aa[ m.size()+1 ]; // for the stored value of letter
+    int d = 0;
+    for(auto i : m)
+    {
+        aa[d] = i.second;
+        d++;
+    }
+    sort(aa,aa+d); // sort them in increasing order 
+    int s = m.size();
+    if( s <= 2)
+    {
+        cout<<0;
+    }
+    else
+    {
+       int c = 0;
+       for(int i = 0 ; i < d-2 ;i++)
+       {
+            c += aa[i]; // just add the frequency of letters till the number of letter -2
+       }
+       cout<<c;
+    }
+}
